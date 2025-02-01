@@ -1,0 +1,80 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #6dd5ed, #2193b0); /* Gradient background */
+    margin: 0; /* Remove default margin */
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #fff; /* Optional: Adjust text color to stand out against the background */
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 6px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 100px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 15px;
+}
+
+/* Style for clicked cell */
+.cell.clicked {
+    background-color: #000; /* Black background */
+    color: transparent; /* Hide the original text color */
+}
+
+.cell.clicked::before {
+    content: attr(data-content); /* Display the text from data-content */
+    background-image: linear-gradient(135deg, #6dd5ed, #2193b0); /* Gradient text color */
+    -webkit-background-clip: text; /* Gradient text effect for WebKit browsers */
+    background-clip: text; /* Gradient text effect for other browsers */
+    color: transparent; /* Hide original text color */
+    font-weight: bold;
+}
+
+/* Popup Styles */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+    background-image: linear-gradient(135deg, #6dd5ed, #2193b0);
+    color: white !important;
+    padding: 100px;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 10px;
+}
+
+button {
+    background-image: linear-gradient(135deg, #6dd5ed, #2193b0);
+    color: white !important;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
